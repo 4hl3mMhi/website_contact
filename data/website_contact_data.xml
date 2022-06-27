@@ -1,0 +1,91 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Customer page. -->
+        <record id="customer_page" model="website.page">
+            <field name="name">Customers</field>
+            <field name="type">qweb</field>
+            <field name="url">/website_contact/customers</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="website_contact.customer_template"/>
+            <field name="track">True</field>
+        </record>
+        <!-- Supplier page. -->
+        <record id="supplier_page" model="website.page">
+            <field name="name">Suppliers</field>
+            <field name="type">qweb</field>
+            <field name="url">/website_contact/suppliers</field>
+            <field name="is_published">True</field>
+            <field name="view_id" ref="website_contact.supplier_template"/>
+            <field name="track">True</field>
+        </record>
+        <!-- About Me page. -->
+        <record id="aboutme_page" model="website.page">
+            <field name="name">About me</field>
+            <field name="type">qweb</field>
+            <field name="url">/aboutme</field>
+            <field name="website_indexed" eval="False"/>
+            <field name="is_published">True</field>
+            <field name="key">website_contact.aboutme_page</field>
+            <field name="arch" type="xml">
+                <t name="About me" t-name="website_contact.aboutme_page">
+                    <t t-call="website.layout">
+                        <div id="wrap">
+                            <div style="text-align: center; margin-top:1rem">
+                                <img src="/website_contact/static/src/img/aboutme_img.png" alt="About me"/>
+                            </div>
+                            <div class="container" style="text-align: center; margin-top:1rem">
+                                <h2>AHLEM MEHRI</h2>
+                                <h4>Odoo Senior Developer, Freelancer and Trader.</h4>
+                                <br/>
+                                <p>An avid and creative developer, Able to learn and evolve quickly, very effectively
+                                    <br/>
+                                    in working independently but also within a team.
+                                </p>
+                            </div>
+                            <div style="text-align: center; margin-top:3rem; margin-bottom:2rem;">
+                                <a href="https://dz.linkedin.com/in/ahlem-mehri-555748198" class="oe_link"
+                                   target="_blank">
+                                    <img src="/website_contact/static/src/img/linkedin_icon.png" alt="LinkedIn Icon"
+                                         style="padding-right: 1rem"/>
+                                </a>
+                                <a href="https://github.com/4hl3mMhi" class="oe_link" target="_blank">
+                                    <img src="/website_contact/static/src/img/github-icon.png" alt="Github Icon"
+                                         style="padding-right: 1rem"/>
+                                </a>
+                                <a href="/website_contact/static/src/img/instagram-profile.jpg" target="_blank">
+                                    <img src="/website_contact/static/src/img/instagram-icon.png" alt="Instagram Icon"/>
+                                </a>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+
+        <!-- Customer menu. -->
+        <record id="menu_customer" model="website.menu">
+            <field name="name">Customers</field>
+            <field name="url">/website_contact/customers</field>
+            <field name="page_id" ref="website_contact.customer_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+        <!-- Supplier menu. -->
+        <record id="menu_supplier" model="website.menu">
+            <field name="name">Suppliers</field>
+            <field name="url">/website_contact/suppliers</field>
+            <field name="page_id" ref="website_contact.supplier_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">11</field>
+        </record>
+        <!-- About Me menu. -->
+        <record id="menu_aboutme" model="website.menu">
+            <field name="name">About me</field>
+            <field name="url">/aboutme</field>
+            <field name="page_id" ref="website_contact.aboutme_page"/>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,123 @@
+<?xml version="1.8" encoding="utf-8"?>
+<odoo>
+    <template id="customer_template" name="customer">
+        <t t-call="website.layout">
+            <!-- Search Box : adding a search box in customer template to look for a customer in the list. -->
+            <div style="margin-top: 2rem !important;" class="products_pager form-inline flex-md-nowrap justify-content-between justify-content-md-center">
+                <t t-call="website_contact.customer_search"/>
+            </div>
+
+            <div class="col-lg-12 row">
+                <div t-if="enable_customers_categories" id="div_customers_categories" class="col-lg-3"/>
+                <div id="main_div" t-attf-class="row #{'col-lg-9' if enable_customers_categories else 'col-lg-12'}">
+                    <t t-foreach="customers" t-as="person">
+                        <div class="col-3" style="width:250px !important;height: 250px !important;">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <a t-attf-href="/website_contact/customers/details/#{ slug(person) }" itemprop="url">
+                                <span t-field="person.image_1920"
+                                      t-options="{'widget': 'image', 'preview_image': 'image_1920'}"
+                                      class="d-flex h-100 justify-content-center align-items-center"/>
+                                <div class="text-center" style="font-size: 20px;">
+                                    <span t-esc="person.name"/>
+                                </div>
+                                <div class="text-center" style="font-size: 15px;">
+                                    <span t-esc="person.email"/>
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+            </div>
+            <!-- Customer pager: add page number to the footer of the template. -->
+            <div style="margin-top: 3rem !important;" class="products_pager form-inline justify-content-center py-3">
+                <t t-call="website.pager"/>
+            </div>
+        </t>
+    </template>
+
+    <!-- This template is for the search box in the main customer template 'customer_template'. -->
+    <template id="customer_search" name="Customer Search Box">
+        <form action="/website_contact/customers">
+            <t t-call="website.website_search_box">
+                <t t-set="action" t-value="'/website_contact/customers'"/>
+            </t>
+        </form>
+    </template>
+
+    <!-- This template is for Customer Category. -->
+    <template id="customers_categories" inherit_id="website_contact.customer_template" active="False" customize_show="True"
+              name="Customer Categories">
+        <xpath expr="//div[@id='div_customers_categories']" position="before">
+            <t t-set="enable_customers_categories" t-value="True"/>
+        </xpath>
+        <xpath expr="//div[@id='div_customers_categories']" position="inside">
+            <button type="button" class="btn btn-link d-lg-none" data-target="#wcustomers_categories_collapse"
+                    data-toggle="collapse">
+                Show customer categories
+            </button>
+            <div class="collapse d-lg-block" id="wcustomers_categories_collapse">
+                <ul class="nav nav-pills flex-column mb-2">
+                    <li class="nav-item">
+                        <a href="/website_contact/customers" t-attf-class="nav-link #{'' if category else 'active'} o_not_editable">
+                            All Customers
+                        </a>
+                    </li>
+                    <t t-foreach="categories" t-as="category_rec">
+                        <li class="nav-item">
+                            <a t-attf-href="/website_contact/customers/category/#{ slug(category_rec) }"
+                               t-attf-class="nav-link #{'active' if category_rec.id == category.id else ''}  o_not_editable">
+                                <span t-field="category_rec.name"/>
+                            </a>
+                        </li>
+                    </t>
+                </ul>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- This template is to display customer details when hit his/her name in the main customer template 'customer_template'. -->
+    <template id="customer_details" name="Customer Details">
+        <t t-call="website.layout">
+            <div class="col-md-4" style="margin: 10px;">
+                <!-- Breadcrumbs -->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="/website_contact/customers">Customers</a>
+                    </li>
+                    <li t-if="category" class="breadcrumb-item">
+<!--                        <a t-att-href="keep('/website_contact/customers/category/#{ slug(category) }', category=0)" t-field="category.name"/>-->
+                        <a t-attf-href="/website_contact/customers/category/#{ slug(category) }" t-field="category.name"/>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <span t-field="customer.name"/>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-12 row">
+                <div class="col-8 text-center" style="margin-top: 30px;">
+                    <img style="width: 250px; height:250px; border-radius: 20px;" alt="Customer Image"
+                         t-attf-src="/web/image/res.partner/{{ customer.id }}/image_1920"/>
+                    <!-- t-att-src="'/web/image/res.partner/%s/image_1920' % customer.id"/>-->
+                </div>
+                <div class="col-4 pull-left" style="margin-top: 32px;">
+                    <h4 class="mb-1">
+                        <b t-esc="customer.name"/>
+                    </h4>
+                    <br/>
+                    <div class="d-flex align-items-center mb-1">
+                        <div class="fa fa-envelope fa-fw mb-1"></div>
+                        <a t-att-href="'mailto:'+customer.email" t-esc="customer.email"/>
+                    </div>
+                    <div class="d-flex flex-nowrap align-items-center mb-1">
+                        <div class="fa fa-phone fa-fw mb-1"></div>
+                        <span t-esc="customer.phone"/>
+                    </div>
+                    <div class="d-flex flex-nowrap align-items-center mb-1">
+                        <div class="fa fa-map-marker fa-fw mt-1"></div>
+                        <span t-esc="customer.city"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

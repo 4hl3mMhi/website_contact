@@ -1,0 +1,50 @@
+Template Designer Documentation :
+-------------------------------
+
+A template is a regular text file. It can generate any text-based format (HTML, XML, CSV, LaTeX, etc.).
+It doesn't have a specific extension, .html or .xml are just fine. A template contains variables and/or expressions,
+which get replaced with values when the template is evaluated/rendered, and tags, which control the template's logic.
+
+    {% ... %} for Statements
+    {{ ... }} for Expressions to print to the template output
+    {# ... #} for Comments not included in the template output
+
+
+1- {% expression %}
+   With the default syntax, control structures appear inside {% ... %} blocks.
+
+   ex:  <ul>
+        {% for user in users %}
+           <li>{{ user.username|e }}</li>
+        {% endfor %}
+        </ul>
+
+
+2- {{ expression }}
+  The application passes variables to the templates for manipulation in the template. Variables may have attributes
+  or elements you can access, too. The visual representation of a variable depends heavily on the application providing
+  it. Use a dot (.) to access attributes of a variable,
+
+  ex:  {{ foo.bar }}
+       {{ foo['bar'] }}
+
+
+3- #{ expression }
+  is used for "string interpolation", inserting dynamic content into the string, i.e
+  string interpolation (#{expression}) allows any valid expression to appear within a double-quoted string.
+  The result of evaluating that expression is inserted into the string,
+
+  ex: {{ "foo #{bar} baz" }}
+      {{ "foo #{1 + 2} baz" }}
+
+  interpolate: insert (something of a different nature) into something else.
+
+
+4- {# something here #}
+  is used to comment part of a line in a template, use the comment syntax {# ...#},
+
+  ex:    {# note: disabled section because we no longer use this
+             {% for user in users %}
+                 ...
+             {% endfor %}
+         #}

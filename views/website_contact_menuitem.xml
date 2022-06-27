@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Top menu item -->
+        <menuitem id="menu_root_website_contact" name="Website Contacts"
+                  web_icon="website_contact,static/description/icon.png"
+                  sequence="0"
+                  groups="base.group_user"/>
+
+        <!-- menu categories -->
+        <!-- menu actions -->
+    </data>
+</odoo>

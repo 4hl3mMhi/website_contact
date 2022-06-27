@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- demo data for partner tags (category). -->
+        <record id='golden-partner' model='res.partner.category'>
+            <field name="name">Golden Partner</field>
+        </record>
+        <record id='consulting-services' model='res.partner.category'>
+            <field name="name">Consulting Services</field>
+        </record>
+        <record id='employees' model='res.partner.category'>
+            <field name="name">Employees</field>
+        </record>
+        <record id='prospects' model='res.partner.category'>
+            <field name="name">Prospects</field>
+        </record>
+        <record id='registered' model='res.partner.category'>
+            <field name="name">Registered</field>
+        </record>
+        <record id='services' model='res.partner.category'>
+            <field name="name">Services</field>
+        </record>
+        <record id='vendor' model='res.partner.category'>
+            <field name="name">Vendor</field>
+        </record>
+        <record id='desk-manufactures' model='res.partner.category'>
+            <field name="name">Desk Manufactures</field>
+        </record>
+        <record id='offices-supplies' model='res.partner.category'>
+            <field name="name">Offices Supplies</field>
+        </record>
+        <record id='reseller' model='res.partner.category'>
+            <field name="name">Reseller</field>
+        </record>
+        <record id='unregistered' model='res.partner.category'>
+            <field name="name">Unregistered</field>
+        </record>
+
+        <!-- demo data for customers. -->
+        <record id='customer_1' model='res.partner'>
+            <field name="name">A.Menarini IFR S.r.l.</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.consulting-services')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_1.jpg"/>
+        </record>
+
+        <record id='customer_2' model='res.partner'>
+            <field name="name">A.P. Kern AG</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.desk-manufactures')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_2.jpg"/>
+        </record>
+        <record id='customer_3' model='res.partner'>
+            <field name="name">ABM Data Systems</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.employees')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_3.jpg"/>
+        </record>
+        <record id='customer_4' model='res.partner'>
+            <field name="name">Abrantix AG</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.offices-supplies')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_4.jpg"/>
+        </record>
+        <record id='customer_5' model='res.partner'>
+            <field name="name">Absolute Software</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.prospects')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_5.jpg"/>
+        </record>
+        <record id='customer_6' model='res.partner'>
+            <field name="name">Accero</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.registered')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_6.jpg"/>
+        </record>
+        <record id='customer_7' model='res.partner'>
+            <field name="name">Access HQ</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_7.jpg"/>
+        </record>
+        <record id='customer_8' model='res.partner'>
+            <field name="name">Access Intelligence Plc</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.services')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_8.jpg"/>
+        </record>
+        <record id='customer_9' model='res.partner'>
+            <field name="name">Acclaim Systems inc</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.unregistered')), (4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_9.jpg"/>
+        </record>
+        <record id='customer_10' model='res.partner'>
+            <field name="name">Access Testing</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_10.jpg"/>
+        </record>
+        <record id='customer_11' model='res.partner'>
+            <field name="name">Ace Metrix</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.consulting-services'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_11.jpg"/>
+        </record>
+        <record id='customer_12' model='res.partner'>
+            <field name="name">Achieve3000</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.desk-manufactures'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_12.jpg"/>
+        </record>
+        <record id='customer_13' model='res.partner'>
+            <field name="name">AC-Service (Schweiz) AG</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.employees'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_13.jpg"/>
+        </record>
+        <record id='customer_14' model='res.partner'>
+            <field name="name">Adaptive NV</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.offices-supplies'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_14.jpg"/>
+        </record>
+        <record id='customer_15' model='res.partner'>
+            <field name="name">adesso Schweiz AG</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.prospects'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_15.jpg"/>
+        </record>
+        <record id='customer_16' model='res.partner'>
+            <field name="name">adesso SE</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.registered'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_16.jpg"/>
+        </record>
+        <record id='customer_17' model='res.partner'>
+            <field name="name">Adore Infotech</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_17.jpg"/>
+        </record>
+        <record id='customer_18' model='res.partner'>
+            <field name="name">Advantum</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.services'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_18.jpg"/>
+        </record>
+        <record id='customer_19' model='res.partner'>
+            <field name="name">Advertising Specialty Institute</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.unregistered'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_19.jpg"/>
+        </record>
+        <record id='customer_20' model='res.partner'>
+            <field name="name">AEGIS SECURITY, S.L</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_20.jpg"/>
+        </record>
+        <record id='customer_21' model='res.partner'>
+            <field name="name">Affiliated Resource Group</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.consulting-services'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_21.jpg"/>
+        </record>
+        <record id='customer_22' model='res.partner'>
+            <field name="name">AFT of Florida, Inc.</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.desk-manufactures'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_22.jpg"/>
+        </record>
+        <record id='customer_23' model='res.partner'>
+            <field name="name">AGD Systems ltd</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.employees'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_23.jpg"/>
+        </record>
+        <record id='customer_24' model='res.partner'>
+            <field name="name">Agder Energi</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.offices-supplies'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_1.jpg"/>
+        </record>
+        <record id='customer_25' model='res.partner'>
+            <field name="name">Agder Energi AS</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.prospects'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_2.jpg"/>
+        </record>
+        <record id='customer_26' model='res.partner'>
+            <field name="name">Agile Software Test LLC</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.registered'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_3.jpg"/>
+        </record>
+        <record id='customer_27' model='res.partner'>
+            <field name="name">Agile Training Champions</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_4.jpg"/>
+        </record>
+        <record id='customer_28' model='res.partner'>
+            <field name="name">Agilisys Ltd</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.services'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_5.jpg"/>
+        </record>
+        <record id='customer_29' model='res.partner'>
+            <field name="name">AhnLab, Inc</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.unregistered'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_6.jpg"/>
+        </record>
+        <record id='customer_30' model='res.partner'>
+            <field name="name">Aimsoft Limited</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_7.jpg"/>
+        </record>
+        <record id='customer_31' model='res.partner'>
+            <field name="name">Air Bank a.s.</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.consulting-services'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_8.jpg"/>
+        </record>
+        <record id='customer_32' model='res.partner'>
+            <field name="name">Airbus Defence and Space</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.desk-manufactures'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_9.jpg"/>
+        </record>
+        <record id='customer_33' model='res.partner'>
+            <field name="name">Aisling Software Ltd.</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.employees'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_10.jpg"/>
+        </record>
+        <record id='customer_34' model='res.partner'>
+            <field name="name">akqa</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.offices-supplies'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_11.jpg"/>
+        </record>
+        <record id='customer_35' model='res.partner'>
+            <field name="name">Aktiv-soft</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.prospects'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_12.jpg"/>
+        </record>
+        <record id='customer_36' model='res.partner'>
+            <field name="name">Alaska Communications</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.registered'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_13.jpg"/>
+        </record>
+        <record id='customer_37' model='res.partner'>
+            <field name="name">Allegiant Air</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_14.jpg"/>
+        </record>
+        <record id='customer_38' model='res.partner'>
+            <field name="name">Allegient Systems</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.services'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_15.jpg"/>
+        </record>
+        <record id='customer_39' model='res.partner'>
+            <field name="name">Allergytherapeutics</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.unregistered'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_16.jpg"/>
+        </record>
+        <record id='customer_40' model='res.partner'>
+            <field name="name">Almex GmbH</field>
+            <field name="company_type">person</field>
+            <field name="customer_rank">1</field>
+            <field name="category_id" eval="[(4, ref('website_contact.golden-partner'))]"/>
+            <field name="email">user@example.com</field>
+            <field name="phone">(943)-352-2555</field>
+            <field name="city">Fairfield</field>
+            <field name="image_1920" type="base64" file="website_contact/static/src/img/customer_img/res_partner_address_17.jpg"/>
+        </record>
+    </data>
+</odoo>

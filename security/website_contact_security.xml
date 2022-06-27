@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+    <!-- Hide the customers menu from public users by adding a rule. -->
+    <record id="customer_menu_hidden_public" model="ir.rule">
+        <field name="model_id" ref="website.model_website_menu"/>
+        <field name="name">Hide Customers menu for Public Users</field>
+        <field name="domain_force">[('url', 'not like', '%/website_contact/customers%')]</field>
+        <field name="groups" eval="[(4, ref('base.group_public'))]"/>
+        <field name="global" eval="True"/>
+    </record>
+</odoo>
